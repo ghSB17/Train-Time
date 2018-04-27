@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,53 +10,82 @@
     <link href="https://fonts.googleapis.com/css?family=Holtwood+One+SC|Mitr&amp;subset=latin-ext" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.21.0/moment.min.js"></script>
-    
+
     <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
-    <script src="./javascript.js"></script>
+    <script src="./assets/js/javascript.js"></script>
 
     <title>Train Time</title>
-<style>
-    .wide{
-        width: 90%;
-    }
-    .border2 {
-        border: 2px solid white;
-    }
-    #bgPic {
-        background-image: url("./trainBGBody.jpg");
-        background-size: cover;
-        border: 3px solid white;
-        font-family: 'Mitr', sans-serif;
-    }
-    #bgSmPic{
-        background-image: url("./trainBGJ.jpg");
-        background-size: cover;
-        font-family: 'Holtwood One SC', serif;
-        color:white;
-        font-style: oblique;
-        
-        
-    }
-</style>
+    <style>
+        .wide {
+            width: 90%;
+        }
+
+        .border2 {
+            border: 2px solid white;
+        }
+
+        #bgPic {
+            background-image: url("./assets/images/trainBGBody.jpg");
+            background-size: cover;
+            border: 3px solid white;
+            font-family: 'Mitr', sans-serif;
+        }
+
+        #bgSmPic {
+            background-image: url("./assets/images/trainBGJ.jpg");
+            background-size: cover;
+            font-family: 'Holtwood One SC', serif;
+            color: white;
+            font-style: oblique;
+
+
+        }
+
+        input:required:invalid,
+        input:focus:invalid {
+            background-color: lightgray;
+        }
+
+        input:required:valid {
+            /* background-image: url(/images/valid.png);
+            background-position: right top;
+            background-repeat: no-repeat; */
+            background-color: lightskyblue;
+        }
+    </style>
 </head>
+
 <body id="bgPic">
     <br>
     <div class="container">
-        <div class="container text-center jumbotron border2" id="bgSmPic"><h1>TRAIN SCHEDULE</h1> </div>
+        <div class="container text-center jumbotron border2" id="bgSmPic">
+            <h1>TRAIN SCHEDULE</h1>
+        </div>
         <div class="row">
             <div class="col-lg-4 col-md-4 col-sm-none">
                 <div class="card border2">
-                    <div class="card-header bg-primary"><h4>Add Train</h4></div>
+                    <div class="card-header bg-primary">
+                        <h4>Add Train</h4>
+                    </div>
                     <div class="card-body">
                         <form>
-                            Train Name:<br>
-                            <input type="text" id="trainName" class="wide" required><br><br>
-                            Destination:<br>
-                            <input type="text" id="trainDestination" class="wide" required><br><br>
-                            First Train Time(HH:mm-military time):<br>
-                            <input type="text" id="trainFirstTime"  class="wide" required><br><br>
-                            Frequency:<br>
-                            <input type="text" id="trainFrequency"  class="wide" required><br><br>
+                            Train Name:
+                            <br>
+                            <input type="text" id="trainName" class="wide" required placeholder='Train Name'>
+                            <br>
+                            <br> Destination:
+                            <br>
+                            <input type="text" id="trainDestination" class="wide" required>
+                            <br>
+                            <br> First Train Time(HH:mm-military time):
+                            <br>
+                            <input type="text" id="trainFirstTime" class="wide" required>
+                            <br>
+                            <br> Frequency:
+                            <br>
+                            <input type="text" id="trainFrequency" class="wide" required>
+                            <br>
+                            <br>
                             <input type="submit" class="btn btn-primary" id="idSubmit">
                         </form>
                     </div>
@@ -64,7 +94,9 @@
             <br>
             <div class="col-lg-8 col-md-8 col-sm-none">
                 <div class="card border2">
-                    <div class="card-header bg-primary"><h4>Current Train Schedule (Updated Every Minute)</h4></div>
+                    <div class="card-header bg-primary">
+                        <h4>Current Train Schedule (Updated Every Minute)</h4>
+                    </div>
                     <div class="card-body">
                         <table class="table">
                             <thead>
@@ -76,14 +108,16 @@
                                     <th scope="col">Minutes Away</th>
                                 </tr>
                                 <tbody>
-                                    
-                                </tbody>                        
+
+                                </tbody>
                             </thead>
                         </table>
                     </div>
                 </div>
             </div>
-        </div> 
-        <br><br>
+        </div>
+        <br>
+        <br>
 </body>
+
 </html>
