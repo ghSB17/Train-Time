@@ -59,15 +59,10 @@ $(document).ready(function () {
         var pos = firstTime.indexOf(':');
         var firstTimeHrs = parseInt(firstTime.slice(0, pos));
         var firstTimeMins = parseInt(firstTime.slice(pos + 1, firstTime.length));
-        // console.log(pos);
-        // console.log(firstTime);
-        // console.log(firstTimeHrs);
-        // console.log(firstTimeMins);
+        
         trainFT.set('hour', firstTimeHrs);
         trainFT.set('minute', firstTimeMins);
-        // console.log("frequency:"+frequency);
-        // console.log("timenow:"+timeNow.format('hh:mmA'));
-        // console.log("trainFT:"+trainFT.format('hh:mm A'));
+        
         do {
             trainFT.add(parseInt(frequency), 'm');
             console.log("trainFT:" + trainFT.format('hh:mm A'));
@@ -87,23 +82,30 @@ $(document).ready(function () {
         trainFirstTime = $('#trainFirstTime').val();
         trainFrequency = $('#trainFrequency').val();
 
-        if ((trainName !== null && trainName !=='' ), (trainDestination !== null && trainDestination !==''),
-         (trainFirstTime !== null && trainFirstTime !==''), (trainFrequency !== null && trainFrequency !=='')) {
+        //Checking to make sure none of the input fields are left empty
+        if ((trainName !== null && trainName !== ''), (trainDestination !== null && trainDestination !== ''),
+            (trainFirstTime !== null && trainFirstTime !== ''), (trainFrequency !== null && trainFrequency !== '')) {
+            var timeValues = trainFirstTime.split(':');
+            console.log(timeValues);
 
-            trainTimeTable.push({
-                TrainName: trainName,
-                TrainDestination: trainDestination,
-                TrainFirstTime: trainFirstTime,
-                TrainFrequency: trainFrequency,
-            });
-            $('#trainName').val('');
-            $('#trainDestination').val('');
-            $('#trainFirstTime').val('');
-            $('#trainFrequency').val('');
-
+            //checking the trainFirstTime and trainFrequency have user inputs in appropriate format
+            if (timeValues.length === 2 && !isNaN(timeValues[0]) && !isNaN(timeValues[1]) && !isNaN(trainFrequency)
+             && parseInt(timeValues[0]) <= 24 && parseInt(timeValues[1]) <= 59) {
+                trainTimeTable.push({
+                    TrainName: trainName,
+                    TrainDestination: trainDestination,
+                    TrainFirstTime: trainFirstTime,
+                    TrainFrequency: trainFrequency,
+                });
+                $('#trainName').val('');
+                $('#trainDestination').val('');
+                $('#trainFirstTime').val('');
+                $('#trainFrequency').val('');
+            } else
+                console.log('Incorrect Input!!');
         } else {
             //  alert( 'fill in the fields');
-            console.log("Missing Values");
+            console.log("Missing Values!!");
         }
 
     })

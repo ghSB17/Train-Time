@@ -41,16 +41,16 @@
 
         }
 
+        /* To style the input fields when they are empty(null/invalid) 
+        and when the user inputs some value */
+
         input:required:invalid,
         input:focus:invalid {
-            background-color: lightgray;
+            background-color: #F8F8FF;
         }
 
         input:required:valid {
-            /* background-image: url(/images/valid.png);
-            background-position: right top;
-            background-repeat: no-repeat; */
-            background-color: lightskyblue;
+            background-color: #c7e5f9;
         }
     </style>
 </head>
@@ -75,15 +75,15 @@
                             <br>
                             <br> Destination:
                             <br>
-                            <input type="text" id="trainDestination" class="wide" required>
+                            <input type="text" id="trainDestination" class="wide" required placeholder='Destination'>
                             <br>
                             <br> First Train Time(HH:mm-military time):
                             <br>
-                            <input type="text" id="trainFirstTime" class="wide" required>
+                            <input type="text" id="trainFirstTime" class="wide" required placeholder='HH:mm(24hr format)'>
                             <br>
                             <br> Frequency:
                             <br>
-                            <input type="text" id="trainFrequency" class="wide" required>
+                            <input type="text" id="trainFrequency" class="wide" required placeholder='minutes'>
                             <br>
                             <br>
                             <input type="submit" class="btn btn-primary" id="idSubmit">
